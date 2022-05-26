@@ -5,7 +5,7 @@
     let date= document.getElementById("date").value
       console.log(movie)
 
-      let url=`http://www.omdbapi.com/?t=${movie}&apikey=d5c826c7&y=${date}`
+      let url=`http://www.omdbapi.com/?t=${movie}&apikey=f69b3aa4&y=${date}`
 
       async function getData(){
         try{
