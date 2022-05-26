@@ -41,8 +41,11 @@
       let released= document.createElement("p")
       released.innerText="Released:"+ movie.Released
 
+      let ratings= document.createElement("p")
+      ratings.innerText= "Ratings:"+ movie.imdbRating
 
-      div.append(image,title,year,released)
+
+      div.append(image,title,year,released,ratings)
       document.querySelector("#container").append(div)
 
 
