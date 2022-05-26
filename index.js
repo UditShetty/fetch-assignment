@@ -2,9 +2,10 @@
  
  function searchMovie(){
     let movie=document.getElementById("movie").value
+    let date= document.getElementById("date").value
       console.log(movie)
 
-      let url=`http://www.omdbapi.com/?t=${movie}&apikey=d5c826c7`
+      let url=`http://www.omdbapi.com/?t=${movie}&apikey=d5c826c7&y=${date}`
 
       async function getData(){
         try{
