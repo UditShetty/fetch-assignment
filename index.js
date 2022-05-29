@@ -5,7 +5,7 @@
     let date= document.getElementById("date").value
       console.log(movie)
 
-      let url=`http://www.omdbapi.com/?t=${movie}&apikey=f69b3aa4&y=${date}`
+      let url=`http://www.omdbapi.com/?s=${movie}&apikey=f69b3aa4&y=${date}`
 
       async function getData(){
         try{
@@ -16,8 +16,8 @@
             let users= await res.json()
         
             // append(users)
-            displayMovies(users)
-            console.log(users)
+            displayMovies(users.Search)
+            // console.log(users.sear)
         }catch(err){
             console.log(err)
         }
@@ -27,27 +27,29 @@
  }
 
  function displayMovies(movie){
-      let div = document.createElement("div")
 
-      let image=document.createElement("img")
-      image.src=movie.Poster
+     console.log(movie)
+      let div = document.createElement("div")
+movie.forEach(elem => {
+    let image=document.createElement("img")
+      image.src=elem.Poster
 
       let title=document.createElement("p")
-      title.innerHTML="Title:"+ movie.Title
+      title.innerHTML="Title:"+ elem.Title
 
       let year= document.createElement("p")
-      year.innerText="Year:"+ movie.Year
+      year.innerText="Year:"+ elem.Year
 
-      let released= document.createElement("p")
-      released.innerText="Released:"+ movie.Released
 
       let ratings= document.createElement("p")
-      ratings.innerText= "Ratings:"+ movie.imdbRating
+      ratings.innerText= "Ratings:"+ elem.imdbID
 
 
-      div.append(image,title,year,released,ratings)
+      div.append(image,title,year,ratings)
       document.querySelector("#container").append(div)
 
+});
+      
 
  }
  
